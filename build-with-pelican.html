@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>Build a static site with Pelican and GutHub Pages the easy way</title>
+        <title>Build a static site with Pelican and GitHub Pages the easy way</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="https://sammirabyan.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
@@ -33,10 +33,13 @@
 
 
 
-        <meta name="description" content="Hi, folks! Today I’m going to share my experience of using Python’s Pelican library for my personal project. A little backstory As a...">
+        <meta name="description" content="The easiest way to build a static site and publish it on GitHub Pages">
 
         <meta name="author" content="Sam Mirabyan">
 
+        <meta name="tags" content="python">
+        <meta name="tags" content="pelican">
+        <meta name="tags" content="github">
 
 	                <meta property="og:locale" content="">
 		<meta property="og:site_name" content="nontech-learndev">
@@ -44,18 +47,18 @@
 	<meta property="og:type" content="article">
             <meta property="article:author" content="https://sammirabyan.github.io/author/sam-mirabyan.html">
 	<meta property="og:url" content="https://sammirabyan.github.io/build-with-pelican.html">
-	<meta property="og:title" content="Build a static site with Pelican and GutHub Pages the easy way">
+	<meta property="og:title" content="Build a static site with Pelican and GitHub Pages the easy way">
 	<meta property="article:published_time" content="2022-06-05 22:50:00+03:00">
-            <meta property="og:description" content="Hi, folks! Today I’m going to share my experience of using Python’s Pelican library for my personal project. A little backstory As a...">
+            <meta property="og:description" content="The easiest way to build a static site and publish it on GitHub Pages">
 
             <meta property="og:image" content="https://sammirabyan.github.io/images/main-dark.jpeg">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@smirabyan/">
-        <meta name="twitter:title" content="Build a static site with Pelican and GutHub Pages the easy way">
+        <meta name="twitter:title" content="Build a static site with Pelican and GitHub Pages the easy way">
 
             <meta name="twitter:image" content="https://sammirabyan.github.io/images/main-dark.jpeg">
 
-            <meta name="twitter:description" content="Hi, folks! Today I’m going to share my experience of using Python’s Pelican library for my personal project. A little backstory As a...">
+            <meta name="twitter:description" content="The easiest way to build a static site and publish it on GitHub Pages">
     <link rel="icon" href="/images/icons/favicon.ico">
 </head>
 
@@ -94,7 +97,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Build a static site with Pelican and GutHub Pages the easy way</h1>
+                        <h1>Build a static site with Pelican and GitHub Pages the easy way</h1>
                         <span class="meta">Posted by
                                 <a href="https://sammirabyan.github.io/author/sam-mirabyan.html">Sam Mirabyan</a>
                              on Sun 05 June 2022
@@ -115,24 +118,29 @@
     <article>
         <h2>Hi, folks!</h2>
 <p>Today I’m going to share my experience of using Python’s Pelican library for my personal project.</p>
-<h3>A little backstory</h3>
-<p>As a beginner programmer, I needed a way to communicate my thoughts and my skills to recruiters and hiring managers. That’s why I decided to create a blog-portfolio ish website and put it out there in the web.
-Considering that I’m fresh out of Python bootcamp and that my main focus (competence) is building REST APIs, the first though that pumped in my head was: build a Django app, attach some front face (templates or whatever) and I’m good to go.</p>
-<p>So the next part is to make the site visible to world. Well, what free options do we have? I guess the main option is to get a free domain name from <code>noip.com</code> and host your website on Heroku. You can serve one app constrained to 500 MB of RAM consumption. And it’s perfect for a single little app like mine, because other way I would need to a buy a VPS (which is a fair amount of money) or configure my own server (from an old laptop for example).
-After few days of reflection, I dropped this idea, mostly because I found the idea of using Django for a static web application somewhat like an overkill.</p>
-<p>That’s how I came to a decision to host a static website on GitHub Pages. It is free, it has a concise domain name (‘username.gihub.io’ instead of ‘kissmyhumbleunicorn1984.com.hopto.org.fun.’) and it’s fairly simple to manage your static content (posts, project summary and etc.).
-By default GitHub Pages uses Jekyll as it’s static site generator. It is nice, but as a Python fan, I wanted something written in Python to be able to tweak the source code if needed. So I found a very interesting tool called Pelican.</p>
-<h3>What is Pelican?</h3>
-<p>In Python world, Pelican is a static site generator (SSG). It lets you generate html docs coupled with CSS and JS using declarative syntax.
-The basic principle is simple: you write some content to a markdown file (or RST file, but I will stick to markdown), add some metadata (author, publish date, tag etc.). Then you run some pelican instructions and it creates a fully functional html files. After that, you can host these files practically anywhere on the web.</p>
+<h3>Who is this article for</h3>
+<p>This article if for those curious, who would like to start using Pelican package without abstracting away some major steps found in other similar articles on the web. If you already have some experience with Pelican then I recommend you proceeding with something more specific than this article.</p>
 <h3>My setup</h3>
-<p>OS: Linux Mint 20.1 (same as Ubuntu)
-Python: 3.8.10
-version_control: git 2.36.1
-text editor: vscode 1.67.2</p>
+<ul>
+<li>OS: Linux Mint 20.1 (same as Ubuntu)</li>
+<li>Python: 3.8.10</li>
+<li>version_control: git 2.36.1</li>
+<li>text editor: vscode 1.67.2</li>
+</ul>
+<h3>A little backstory</h3>
+<p>As a beginner programmer, I needed a way to communicate my thoughts and my skills to recruiters and hiring managers. That’s why I decided to create a blog-portfolio-ish website and put it out there on the web.</p>
+<p>Considering that I’m fresh out of Python boot camp and that my main focus (competence) is building REST APIs, the first though that pumped in my head was: build a Django app, attach some front face (templates or whatever) and I’m good to go.</p>
+<p>So the next part is to make the site visible to world. Well, what free options do we have? I guess the main option is to get a free domain name from <code>noip.com</code> and host your website on Heroku. You can serve one app constrained to 500 MB of RAM consumption.
+And it’s perfect for a single little app like mine, because other way I would need to a buy a VPS (which is a fair amount of money) or configure my own server (from an old laptop for example).
+After few days of reflection, I dropped this idea, mostly because I found the idea of using Django for a static web application somewhat like an overkill.</p>
+<p>That’s how I came to a decision to host a static website on GitHub Pages. It is free, it has a concise domain name (<u>‘username.github.io’</u> instead of <u>‘kissmyhumbleunicorn1984.com.hopto.org.fun.’</u>) and it’s fairly simple to manage your static content (posts, project summary etc.).
+By default, GitHub Pages uses Jekyll as its static site generator. It is nice, but as a Python fan, I wanted something written in Python to be able to tweak the source code if needed. So I found a very interesting tool called Pelican.</p>
+<h3>What is Pelican?</h3>
+<p>In Python world, Pelican is a static site generator (SSG). It lets you generate HTML docs coupled with CSS and JS using declarative syntax.
+The basic principle is simple: you write some content to a Markdown file (or RST file, but I will stick to Markdown), add some metadata (author, publish date, tag etc.). Then you run some pelican instructions, and it creates a fully functional HTML files. After that, you can host these files practically anywhere on the web.</p>
 <h3>Getting started with Pelican</h3>
-<p>The process of setting everything up is pretty simple.</p>
-<p>Create the root directory to host your future site</p>
+<p>The process of setting everything up is pretty simple.
+Create the root directory for your future site</p>
 <div class="highlight"><pre><span></span><code>mkdir pelican_site
 </code></pre></div>
 
@@ -140,9 +148,10 @@ text editor: vscode 1.67.2</p>
 <div class="highlight"><pre><span></span><code>python3 -m venv venv
 </code></pre></div>
 
-<p>Pay attention that second <code>venv</code> is the name of the virtual env folder. It can be whatever the name you want.</p>
-<p>Inside root directory of the project create another one to store custom themes for pelican</p>
-<div class="highlight"><pre><span></span><code>mkdir themes
+<p>Pay attention that the second <code>venv</code> is the name of the virtual env folder. It can be whatever name you want.</p>
+<p>Inside the project's root directory create two directories</p>
+<div class="highlight"><pre><span></span><code>mkdir <span class="nb">source</span> <span class="c1"># to store project&#39;s main files</span>
+mkdir themes <span class="c1"># to store your themes</span>
 </code></pre></div>
 
 <p>Activate virtual environment</p>
@@ -153,7 +162,7 @@ text editor: vscode 1.67.2</p>
 <div class="highlight"><pre><span></span><code>pip install Pelican Markdown
 </code></pre></div>
 
-<p>Some folks recommend installing all dependencies from a <code>requirements.txt</code> file generated from <code>pip freeze</code> command. I personally recommend not doing so. <code>Pip freeze</code> extracts all dependencies installed into your virtual environment so you end up with a rather verbose output. Like this</p>
+<p>Some folks recommend installing all dependencies from a <code>requirements.txt</code> file generated from <code>pip freeze</code> command. I personally recommend not doing so. <code>Pip freeze</code> extracts all dependencies installed into your virtual environment, so you end up with a rather verbose output. Like this</p>
 <div class="highlight"><pre><span></span><code><span class="n">bcrypt</span><span class="o">==</span><span class="mf">3.2.2</span>
 <span class="n">blinker</span><span class="o">==</span><span class="mf">1.4</span>
 <span class="n">cffi</span><span class="o">==</span><span class="mf">1.15.0</span>
@@ -184,11 +193,7 @@ text editor: vscode 1.67.2</p>
 
 <p><small>Most of these dependencies were installed behind the scenes as part of the process when a package installed a package and then this package installed another package and so on. In rare cases, you may encounter some incompatibility issues, that’s why I recommend installing only those packages you really need.</small></p>
 <p>Well, we’ve installed everything we need, let’s set up our website</p>
-<p>Create a directory to hold the source files</p>
-<div class="highlight"><pre><span></span><code>mkdir <span class="nb">source</span>
-</code></pre></div>
-
-<p>Navigate to this directory</p>
+<p>Navigate to <code>source/</code> directory</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> source/
 </code></pre></div>
 
@@ -197,11 +202,11 @@ text editor: vscode 1.67.2</p>
 </code></pre></div>
 
 <p>Then answer several questions</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">Where</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">.</span><span class="o">]</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">curren</span><span class="w"> </span><span class="n">directory</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">Where</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">.</span><span class="o">]</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="n">directory</span><span class="w"></span>
 <span class="o">&gt;</span><span class="w"> </span><span class="n">What</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="n">my</span><span class="o">-</span><span class="n">portfolio</span><span class="o">-</span><span class="n">site</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">Who</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">author</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="n">Sam</span><span class="w"> </span><span class="n">Mirabyn</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Who</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">author</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="n">Sam</span><span class="w"> </span><span class="n">Mirabyan</span><span class="w"></span>
 <span class="o">&gt;</span><span class="w"> </span><span class="n">What</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">language</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">en</span><span class="o">]</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">press</span><span class="w"> </span><span class="n">enter</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="k">prefix</span><span class="vm">?</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.,</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="w">   </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">setup</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">later</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="k">prefix</span><span class="vm">?</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.,</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="w">   </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">later</span><span class="w"></span>
 <span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">article</span><span class="w"> </span><span class="n">pagination</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">y</span><span class="w"> </span>
 <span class="o">&gt;</span><span class="w"> </span><span class="n">How</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">articles</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">10</span><span class="o">]</span><span class="w"> </span><span class="mi">6</span><span class="w"></span>
 <span class="o">&gt;</span><span class="w"> </span><span class="n">What</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="nc">time</span><span class="w"> </span><span class="k">zone</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">Europe/Rome</span><span class="o">]</span><span class="w"> </span><span class="n">Europe</span><span class="o">/</span><span class="n">Moscow</span><span class="w"></span>
@@ -229,78 +234,274 @@ tree
 </code></pre></div>
 
 <ul>
-<li><code>Makefile</code> and <code>tasks.py</code> are two files to automate generation and publishing of your site. They offer some usefull functionality, but I won't be using them in this tutorial. We will build everything by hand to get the feel of how things work.</li>
+<li><code>Makefile</code> and <code>tasks.py</code> are two files to automate generation and publishing of your site. They offer some useful functionality, but I won't be using them in this tutorial. We will build everything by hand to get the feel of how things work.</li>
 <li><code>pelicanconf.py</code> and <code>publishconf.py</code> are two settings files.</li>
-<li><code>content/</code> directory holds raw content files and <code>output/</code> directory holds generated html files. At first both of them are empty.</li>
+<li><code>content/</code> directory holds raw content files and <code>output/</code> directory holds generated HTML files. At first both of them are empty.</li>
 </ul>
 <h3>All right, it’s time to write some content</h3>
 <p>Navigate to <code>contents/</code> directory</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> contents/
 </code></pre></div>
 
-<p>In order to create a post simply create a markdown file
-touch first_post.md
-Open this file with a text editor of your choice.
-Fill the metadata
-….
-Add some content
-…
-Save it and return to command line
-To generate html files from you content run
-pelican content
-Now look how your output folder has changed
-Here we can see new html file. Let’s open and inspect it a little bit. Here we have our properly designed html file with styles and scripts.</p>
-<p>Now you may wonder what your files look like. Pelican provides this functionality as well.
-pelican - - listen
-This command starts a Python http server and serves your html pages on it. Open your browser and type into address bar
-localhost:8000
-Now you should see properly designed html page.
-And the process is the same for all of the other articles. Create a markdown file, write some content to it, save it, run pelican content, run pelican - - listen to check the result.</p>
+<p>In order to create a post simply create a Markdown file</p>
+<div class="highlight"><pre><span></span><code>touch first_post.md
+</code></pre></div>
+
+<p>Open this file in your text editor and type in</p>
+<div class="highlight"><pre><span></span><code><span class="n">Title</span><span class="o">:</span><span class="w"> </span><span class="n">My</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">bright</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">shiny</span><span class="w"> </span><span class="n">post</span><span class="w"></span>
+<span class="n">Date</span><span class="o">:</span><span class="w"> </span><span class="mi">2022</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">10</span><span class="w"></span>
+<span class="n">Category</span><span class="o">:</span><span class="w"> </span><span class="n">Psychology</span><span class="w"></span>
+<span class="n">Tags</span><span class="o">:</span><span class="w"> </span><span class="n">reflection</span><span class="o">,</span><span class="w"> </span><span class="n">self</span><span class="o">-</span><span class="n">improvement</span><span class="w"></span>
+<span class="n">Slug</span><span class="o">:</span><span class="w"> </span><span class="n">first</span><span class="o">-</span><span class="n">post</span><span class="w"></span>
+<span class="n">Author</span><span class="o">:</span><span class="w"> </span><span class="n">Sam</span><span class="w"> </span><span class="n">Mirabyan</span><span class="w"></span>
+<span class="n">Summary</span><span class="o">:</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">my</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">post</span><span class="w"></span>
+<span class="n">Status</span><span class="o">:</span><span class="w"> </span><span class="n">published</span><span class="w"></span>
+
+<span class="err">###</span><span class="w"> </span><span class="n">Congrats</span><span class="o">!</span><span class="w"></span>
+<span class="n">I</span><span class="err">&#39;</span><span class="n">ve</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">published</span><span class="w"> </span><span class="n">my</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">post</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">Pelican</span><span class="w"></span>
+</code></pre></div>
+
+<p>Save it and return to command line.
+To generate HTML files for your content run</p>
+<div class="highlight"><pre><span></span><code>pelican content
+</code></pre></div>
+
+<p>Now look how your project's structure has changed</p>
+<div class="highlight"><pre><span></span><code>.
+├── content
+│   └── first_post.md
+├── Makefile
+├── output
+│   ├── archives.html
+│   ├── author
+│   │   └── sam-mirabyan.html
+│   ├── authors.html
+│   ├── categories.html
+│   ├── category
+│   │   └── psychology.html
+│   ├── first-post.html
+│   ├── index.html
+│   ├── tag
+│   │   ├── reflection.html
+│   │   └── self-improvement.html
+│   ├── tags.html
+│   └── theme
+│       ├── css
+│       │   └── ...
+│       ├── fonts
+│       │   └── ...
+│       └── images
+│           └── icons
+│               └── ...
+├── pelicanconf.py
+├── publishconf.py
+├── __pycache__
+│   └── ...
+└── tasks.py
+</code></pre></div>
+
+<p>Pay attention to <strong><em>output/</em></strong> directory, where Pelican has created several HTML files, added fonts, images and CSS styles. Let’s take a brief overlook of what's changed.</p>
+<p>Along with your first article Pelican generated additional HTML files for author, tags, categories and archives. All of this HTML files will be available as pages for your future website.</p>
+<p>Now you may wonder what your files look like. Pelican provides this functionality as well.</p>
+<div class="highlight"><pre><span></span><code>pelican --listen
+</code></pre></div>
+
+<p>This command starts a Python HTTP server and serves your HTML pages locally. Open your browser and type into address bar</p>
+<div class="highlight"><pre><span></span><code><span class="n">localhost</span><span class="o">:</span><span class="mi">8000</span><span class="w"></span>
+</code></pre></div>
+
+<p>Now you should see properly designed HTML page.
+<img alt="screenshot" src="https://sammirabyan.github.io/images/default_pelican_page.png"></p>
+<p>And the process is the same for all the other articles. Create a Markdown file, write some content to it, save it, run <code>pelican content</code>, run <code>pelican --listen</code> to check the result locally.</p>
+<p>To save you from typing this commands every time, Pelican's <code>Makefile</code> provides some useful commands. For example, <code>make devserver</code> regenerates output files on each change and serves them via local server.</p>
+<h3>Adding Pages</h3>
 <p>Next let’s add some common pages like ‘About’ or ‘Contact’ to your website.
 Pelican makes a distinction between articles and pages.
--Articles are like posts, you may have lots of them.
--Pages store some common information and change rarely.
-For now I need two pages: About and Contact.
-About will have few words about my background, skills, and plans.
-Contact will store my GitHub, Telegram and other handles.
-cd to contents/ directory and create pages/ directory inside it.
-You may also want to create articles/ directory to keep your articles in one place and maintain the structure of the project consistent.
-Then cd to pages/ directory and create a file about.md
-Open this file and write some useful information about what a great person you are.
-Then stop the server if you haven’t yet with ctrl+c combination.
-run pelican content and pelican - -listen
-And refresh your browser’s localhost page. There should appear your ‘About’ page.
-The process of adding ‘Contact’ page is the same so you can do it yourself.</p>
-<p>Now let’s change the look and feel of the website. The greatest thing here is that you don’t need to create your own templates and mess with html, CSS and other visual thing (unless this is what you want to do), Pelican’s got you covered.
-Firstly list all preinstalled themes with pelican-themes - -list command.
-<show output>
-Next visit pelican-themes website and choose a theme of your liking. One popular theme is Flex, but for my project I chose …
-After you chose the preferable theme head to github.com/getpeliacn/pelican-themes, find chosen theme and clone it to themes directory.
-Now install your new theme with command pelican-themes - -install <path_to_file> - - verbose (to see the output)
-After this run the content command and start the dev server. The site theme should change.</p>
-<p>All right we have a website that works on your local machine, let’s pair it with GitHub Pages.
-I will keep the process as simple as it can be in order to have the feeling of control over the process. Navigate to your GitHub account, create new repository and name it <your-github-username>.github.io (mine is ‘sammirabyan.gitgub.io’), press create button. After that you will be redirected to the default page of starter options. Copy the link, switch to bash and navigate to output/ directory. Here you need to run some instructions:
-git init
-git checkout –b main
-git add .
-git commit –m ‘initial commit’
-git remote add origin …
-git push –U main origin
-Great, we have sent our static files to our github pages repository, you can switch to repository from your browser and notice one orange mark &lt;&gt; GitHub by default runs Actions workflow to ensure everything is set up properly. After it finished you can navigate to <your-github-username>.github.io and see your site running.
+- Articles - are the main content (like posts), you may have lots of them.
+- Pages store some common information and change rarely.</p>
+<p>For now, I need two pages: <em>About</em> and <em>Contact</em>.
+- <em>About</em> will provide a few words about my background, skills, and plans.
+- <em>Contact</em> will store my GitHub, Telegram and other handles.</p>
+<p>Navigate to <code>contents/</code> directory and create <code>pages/</code> directory inside it.
+<small>You may also want to refactor a little and create <code>articles/</code> directory and move your articles into this directory in order to keep your articles in one place and maintain the structure of the project consistent.</small></p>
+<p>Navigate to <code>pages/</code> directory and create a file <code>about.md</code>
+Open this file and write some useful information about what a great person you are.</p>
+<p>Be sure to add these meta headers</p>
+<div class="highlight"><pre><span></span><code>Title: About
+Date: <span class="m">2022</span>-06-10 <span class="m">10</span>:50
+Slug: about
+</code></pre></div>
+
+<p>Then stop the server if you haven’t yet with <code>ctrl+c</code> combination.
+Run <code>pelican content</code> and <code>pelican --listen</code> or some of the <code>Makefile</code> commands.
+And refresh your browser’s localhost page. There should appear your <em>About</em> page.
+<img alt="screenshot" src="https://sammirabyan.github.io/images/pelican_page_about.png">
+The process of adding <em>Contact</em> page is the same, so you can do it on your own.</p>
+<h3>Changing the Theme</h3>
+<p>Now let’s change the look and feel of the website.
+The greatest thing here is that you don’t need to create your own templates and mess with HTML, CSS and other visual thing (unless this is what you want to do), Pelican’s got you covered.
+Firstly list all preinstalled themes</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># pelican-site/source/</span>
+pelican-themes --list --verbose
+<span class="c1"># or simply pelican-themes -lv</span>
+
+<span class="c1"># output</span>
+.../pelican-site/venv/lib/python3.8/site-packages/pelican/themes/simple
+.../pelican-site/venv/lib/python3.8/site-packages/pelican/themes/notmyidea
+</code></pre></div>
+
+<p>Next visit pelican-themes website <a href="http://www.pelicanthemes.com/">http://www.pelicanthemes.com</a> and choose a theme of your liking.
+One popular theme is <em>Flex</em>, it's suits very well for portfolio websites. For my own project I chose <em>Clean blog</em>.
+<small>One important thing to take to consider: all themes built and styled differently, have different settings. Some more customizable than others. Every one of them has some flaws and trade-offs. You may spend some time tweaking a theme, it's ok. Still, for it's much better than to set up everything myself.</small>
+After you chose the preferable theme head to <a href="https://github.com/getpelican/pelican-themes/">https://github.com/getpeliacn/pelican-themes</a>, find your chosen theme from the list and clone it (press little green <em>Code</em> button and copy the output) to themes directory.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># pelican-site/themes</span>
+git clone git@github.com:alexandrevicenzi/Flex.git
+
+<span class="c1"># output</span>
+Cloning into <span class="s1">&#39;Flex&#39;</span>...
+remote: Enumerating objects: <span class="m">2796</span>, <span class="k">done</span>.
+remote: Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">185</span>/185<span class="o">)</span>, <span class="k">done</span>.
+remote: Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">100</span>/100<span class="o">)</span>, <span class="k">done</span>.
+remote: Total <span class="m">2796</span> <span class="o">(</span>delta <span class="m">111</span><span class="o">)</span>, reused <span class="m">135</span> <span class="o">(</span>delta <span class="m">82</span><span class="o">)</span>, pack-reused <span class="m">2611</span>
+Receiving objects: <span class="m">100</span>% <span class="o">(</span><span class="m">2796</span>/2796<span class="o">)</span>, <span class="m">6</span>.53 MiB <span class="p">|</span> <span class="m">4</span>.78 MiB/s, <span class="k">done</span>.
+Resolving deltas: <span class="m">100</span>% <span class="o">(</span><span class="m">1605</span>/1605<span class="o">)</span>, <span class="k">done</span>.
+</code></pre></div>
+
+<p>Now install your new theme</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># pelican-site/themes</span>
+<span class="o">(</span>venv<span class="o">)</span> pelican-themes --install /path_to_project_root/pelican-site/themes/Flex --verbose
+<span class="c1"># --verbose - to see the output</span>
+</code></pre></div>
+
+<p>Now check that the new theme has been installed properly</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># pelican-site/themes</span>
+<span class="o">(</span>venv<span class="o">)</span> pelican-themes -lv
+
+<span class="c1"># output</span>
+.../pelican-site/venv/lib/python3.8/site-packages/pelican/themes/simple
+.../pelican-site/venv/lib/python3.8/site-packages/pelican/themes/notmyidea
+.../pelican-site/venv/lib/python3.8/site-packages/pelican/themes/Flex
+</code></pre></div>
+
+<p>Cool, we've added new theme to our project. But we can't use it for our new layout yet. We need to tell Pelican which theme to use.
+Open <code>pelicanconf.py</code> setting file in your text editor and change some settings.</p>
+<div class="highlight"><pre><span></span><code><span class="n">THEME</span> <span class="o">=</span> <span class="s1">&#39;Flex&#39;</span>
+</code></pre></div>
+
+<p>After this run the dev server (<code>make devserver</code>). The site theme should've changed.
+<img alt="after applying new theme" src="https://sammirabyan.github.io/images/pelican_with_flex_theme.png">
+<small>Further customizations and tips you can find in this great multi-step <a href="https://shahayush.com/2020/03/web-pelican-pt1-setup/">tutorial</a> by <em>Ayush Kumar Shah</em>.</small></p>
+<h3>Publishing your website to GitHub Pages</h3>
+<p>All right we have a website that works on our local machine, let’s pair it with GitHub Pages.
+I will keep the process as simple as it can be in order to keep the feeling of control over the process.
+Firstly we need to make some changes to the <code>pelicanconf.py</code> file</p>
+<div class="highlight"><pre><span></span><code><span class="n">SITEURL</span> <span class="o">=</span> <span class="s1">&#39;https://your-github-username.github.io&#39;</span>
+<span class="n">DOMAIN</span> <span class="o">=</span> <span class="n">SITEURL</span>
+<span class="n">FEED_DOMAIN</span> <span class="o">=</span> <span class="n">SITEURL</span>
+<span class="n">HTTPS</span> <span class="o">=</span> <span class="kc">True</span>
+</code></pre></div>
+
+<p>Navigate to your GitHub account, create new repository and name it <em>your-github-username.github.io</em> (mine is ‘sammirabyan.github.io’), press the <strong><em>Create repository</em></strong> button.
+After that you will be redirected to the default page for selecting options for an empty repository.
+<img alt="create repository screenshot" src="https://sammirabyan.github.io/images/github_create_repository.png">
+Copy the upmost link and navigate to the <code>output/</code> directory.
+Here you need to run some instructions:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># pelican-site/source/output</span>
+
+git init <span class="c1"># initialize git repo</span>
+git checkout -b main <span class="c1"># create new branch `main` and switch to it</span>
+git add . <span class="c1"># add all files in the &#39;output&#39; directory to git index</span>
+git commit -m <span class="s1">&#39;initial commit&#39;</span> <span class="c1"># commit changes</span>
+git remote add origin **paste copied link** <span class="c1"># link local repo to remote repo</span>
+git push -U main origin <span class="c1"># push changes to remote repo</span>
+</code></pre></div>
+
+<p>Great, we have sent our static files to our GitHub pages repository, you can navigate to this repository from your browser and notice one orange mark. GitHub by default runs Actions workflow to ensure everything is set up properly. After it's finished you can navigate to <em>your-github-username.github.io</em> and see your site running.
 Looks nice!</p>
-<p>Next what I recommend to do is to push your source files to GitHub as well. It will save you a lot of time in case of file loss on your local machine or in case you need to work with you site using another set up.
-Create new GitHub repository and name it something like ‘pelican_site_source_code’ or whatever the name you want. Then we need to do the trick like we did with our github.io repository but with a little more effort.
+<h3>Versioning your source code</h3>
+<p>Next what I recommend is pushing your source files to GitHub as well. It will save you a lot of time in case of a file loss on your local machine or in case you need to work with your site using another device.</p>
+<p>Create new GitHub repository, name it something like <code>pelican_site_source_code</code> or whatever the name you want. Choose <strong>private</strong> option to make this files invisible to others.
+Then we need to do the trick like we did with our github.io repository but with a little more effort. Again copy the upmost link and head to <code>source/</code> directory</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># pelican-site/source</span>
+
 git init
-git checkout –b main
-touch ‘.gitiignore’
-Add this code to .gitignore
-You may also want to add a README.md file
-<add the rest></p>
-<p>Now we have our source files safely stored in a remote repository.
-Pay attention that in this case you need to maintain (manually) the state of two repositories – one for output and another for source code. There are some tools to make life easier and less error prone, but for now </p>
-<p>Thanks for reading! See you next time.</p>
+git checkout -b main
+touch .gitiignore
+
+<span class="c1"># then pause with command line and open your text editor</span>
+<span class="c1"># add this code to `.gitignore` file</span>
+__pycache__/
+*.py<span class="o">[</span>cod<span class="o">]</span>
+*<span class="nv">$py</span>.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.DS_Store
+*.mo
+*.pot
+*.log
+docs/_build/
+target/
+pelican-plugins
+themes
+.venv/
+output
+*.pid
+.vscode/
+
+<span class="c1"># after that switch to command line and proceed</span>
+git add .
+git commit -m <span class="s1">&#39;initial commit&#39;</span>
+git remote add origin **paste copied link**
+git push -U main origin
+</code></pre></div>
+
+<p>Now we have our source files safely stored in a remote repository.</p>
+<p>Pay attention that in this case you need to maintain (manually) the state of two repositories – one for the output and another for the source code. There are some tools to make life easier and less error-prone, I hope you'll easily find them yourself.</p>
+<h3>Wrapping up</h3>
+<p>Well, we've covered some major steps from an empty directory to having our website published on the internet.
+In this tutorial we've discovered how to use Pelican to:
+- scaffold your website's code structure;
+- generate HTML files from Markdown;
+- create articles;
+- create static pages;
+- change layout with Pelican themes;
+- publish generated static files on GitHub Pages;
+- store your project's source code on GitHub.</p>
+<p>There is still a lot that remained uncovered by this article. The rest should be picked up on the go while solving problems and improving your new existing site.</p>
+<p>Thanks for reading! I hope it was an interesting one. 
+See you next time!</p>
     </article>
 
+        <div class="tags">
+            <p>tags: <a href="https://sammirabyan.github.io/tag/python.html">python</a>, <a href="https://sammirabyan.github.io/tag/pelican.html">pelican</a>, <a href="https://sammirabyan.github.io/tag/github.html">github</a></p>
+        </div>
 
     <hr>
 
