@@ -130,7 +130,7 @@
 <h3>A little backstory</h3>
 <p>As a beginner programmer, I needed a way to communicate my thoughts and my skills to recruiters and hiring managers. That’s why I decided to create a blog-portfolio-ish website and put it out there on the web.</p>
 <p>Considering that I’m fresh out of Python boot camp and that my main focus (competence) is building REST APIs, the first though that pumped in my head was: build a Django app, attach some front face (templates or whatever) and I’m good to go.</p>
-<p>So the next part is to make the site visible to world. Well, what free options do we have? I guess the main option is to get a free domain name from <code>noip.com</code> and host your website on Heroku. You can serve one app constrained to 500 MB of RAM consumption.
+<p>So the next part is to make the site visible to world. Well, what free options do we have? I guess the main option is to get a free domain name from <code>noip.com</code> and host your website on <code>Heroku</code>. You can serve one app constrained to 500 MB of RAM consumption.
 And it’s perfect for a single little app like mine, because other way I would need to a buy a VPS (which is a fair amount of money) or configure my own server (from an old laptop for example).
 After few days of reflection, I dropped this idea, mostly because I found the idea of using Django for a static web application somewhat like an overkill.</p>
 <p>That’s how I came to a decision to host a static website on GitHub Pages. It is free, it has a concise domain name (<u>‘username.github.io’</u> instead of <u>‘kissmyhumbleunicorn1984.com.hopto.org.fun.’</u>) and it’s fairly simple to manage your static content (posts, project summary etc.).
@@ -159,10 +159,10 @@ mkdir themes <span class="c1"># to store your themes</span>
 </code></pre></div>
 
 <p>Install Pelican and Markdown packages</p>
-<div class="highlight"><pre><span></span><code>pip install Pelican Markdown
+<div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span> pip install Pelican Markdown
 </code></pre></div>
 
-<p>Some folks recommend installing all dependencies from a <code>requirements.txt</code> file generated from <code>pip freeze</code> command. I personally recommend not doing so. <code>Pip freeze</code> extracts all dependencies installed into your virtual environment, so you end up with a rather verbose output. Like this</p>
+<p>Some folks recommend installing all dependencies from a <code>requirements.txt</code> file generated from <code>pip freeze</code> command. I personally recommend not doing so. <code>Pip freeze</code> extracts all dependencies installed into your virtual environment, so you end up with a rather verbose output like this</p>
 <div class="highlight"><pre><span></span><code><span class="n">bcrypt</span><span class="o">==</span><span class="mf">3.2.2</span>
 <span class="n">blinker</span><span class="o">==</span><span class="mf">1.4</span>
 <span class="n">cffi</span><span class="o">==</span><span class="mf">1.15.0</span>
@@ -220,7 +220,7 @@ mkdir themes <span class="c1"># to store your themes</span>
 <span class="o">&gt;</span><span class="w"> </span><span class="k">Is</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">personal</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="p">(</span><span class="n">username</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="p">)</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
 </code></pre></div>
 
-<p>That’s all. Pelican has generated your project structure for you. What do we have here?</p>
+<p>That’s all. Pelican has set up your project's structure. Let's inspect it a little.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># bash</span>
 tree
 
@@ -234,7 +234,7 @@ tree
 </code></pre></div>
 
 <ul>
-<li><code>Makefile</code> and <code>tasks.py</code> are two files to automate generation and publishing of your site. They offer some useful functionality, but I won't be using them in this tutorial. We will build everything by hand to get the feel of how things work.</li>
+<li><code>Makefile</code> and <code>tasks.py</code> are two files to automate generation and publishing of your site. They offer some useful functionality, but I won't be using them too much in this tutorial. I will try to build everything by hand to get the feel of how things work.</li>
 <li><code>pelicanconf.py</code> and <code>publishconf.py</code> are two settings files.</li>
 <li><code>content/</code> directory holds raw content files and <code>output/</code> directory holds generated HTML files. At first both of them are empty.</li>
 </ul>
@@ -247,7 +247,7 @@ tree
 <div class="highlight"><pre><span></span><code>touch first_post.md
 </code></pre></div>
 
-<p>Open this file in your text editor and type in</p>
+<p>Open this file in your text editor and type in (first 8 lines are meta headers, Pelican needs them to do its magick)</p>
 <div class="highlight"><pre><span></span><code><span class="n">Title</span><span class="o">:</span><span class="w"> </span><span class="n">My</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">bright</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">shiny</span><span class="w"> </span><span class="n">post</span><span class="w"></span>
 <span class="n">Date</span><span class="o">:</span><span class="w"> </span><span class="mi">2022</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">10</span><span class="w"></span>
 <span class="n">Category</span><span class="o">:</span><span class="w"> </span><span class="n">Psychology</span><span class="w"></span>
@@ -263,7 +263,7 @@ tree
 
 <p>Save it and return to command line.
 To generate HTML files for your content run</p>
-<div class="highlight"><pre><span></span><code>pelican content
+<div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span> pelican content
 </code></pre></div>
 
 <p>Now look how your project's structure has changed</p>
@@ -302,11 +302,11 @@ To generate HTML files for your content run</p>
 
 <p>Pay attention to <strong><em>output/</em></strong> directory, where Pelican has created several HTML files, added fonts, images and CSS styles. Let’s take a brief overlook of what's changed.</p>
 <p>Along with your first article Pelican generated additional HTML files for author, tags, categories and archives. All of this HTML files will be available as pages for your future website.</p>
-<p>Now you may wonder what your files look like. Pelican provides this functionality as well.</p>
-<div class="highlight"><pre><span></span><code>pelican --listen
+<p>Now you may wonder how all these files form a website. Pelican provides this functionality as well.</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>venv<span class="o">)</span> pelican --listen
 </code></pre></div>
 
-<p>This command starts a Python HTTP server and serves your HTML pages locally. Open your browser and type into address bar</p>
+<p>This command starts a Python HTTP server and serves your HTML pages locally. Open your browser and type into the address bar</p>
 <div class="highlight"><pre><span></span><code><span class="n">localhost</span><span class="o">:</span><span class="mi">8000</span><span class="w"></span>
 </code></pre></div>
 
@@ -315,15 +315,19 @@ To generate HTML files for your content run</p>
 <p>And the process is the same for all the other articles. Create a Markdown file, write some content to it, save it, run <code>pelican content</code>, run <code>pelican --listen</code> to check the result locally.</p>
 <p>To save you from typing this commands every time, Pelican's <code>Makefile</code> provides some useful commands. For example, <code>make devserver</code> regenerates output files on each change and serves them via local server.</p>
 <h3>Adding Pages</h3>
-<p>Next let’s add some common pages like ‘About’ or ‘Contact’ to your website.
-Pelican makes a distinction between articles and pages.
-- Articles - are the main content (like posts), you may have lots of them.
-- Pages store some common information and change rarely.</p>
-<p>For now, I need two pages: <em>About</em> and <em>Contact</em>.
-- <em>About</em> will provide a few words about my background, skills, and plans.
-- <em>Contact</em> will store my GitHub, Telegram and other handles.</p>
-<p>Navigate to <code>contents/</code> directory and create <code>pages/</code> directory inside it.
-<small>You may also want to refactor a little and create <code>articles/</code> directory and move your articles into this directory in order to keep your articles in one place and maintain the structure of the project consistent.</small></p>
+<p>Next let’s add some common pages like <em>‘About’</em> or <em>‘Contact’</em> to your website.
+Pelican makes a distinction between articles and pages.</p>
+<ul>
+<li>Articles are the main content (like posts), you may have lots of them.</li>
+<li>Pages store some common information and change rarely.</li>
+</ul>
+<p>For now, I need two pages: <em>About</em> and <em>Contact</em>.</p>
+<ul>
+<li><em>About</em> will provide a few words about my background, skills, and plans.</li>
+<li><em>Contact</em> will store my GitHub, Telegram and other handles.</li>
+</ul>
+<p>Navigate to <code>contents/</code> directory and create <code>pages/</code> directory inside it.</p>
+<p><small>You may also want to refactor a little and create <code>articles/</code> directory and move your articles into this directory in order to keep your articles in one place and maintain the structure of the project consistent.</small></p>
 <p>Navigate to <code>pages/</code> directory and create a file <code>about.md</code>
 Open this file and write some useful information about what a great person you are.</p>
 <p>Be sure to add these meta headers</p>
@@ -339,9 +343,10 @@ And refresh your browser’s localhost page. There should appear your <em>About<
 The process of adding <em>Contact</em> page is the same, so you can do it on your own.</p>
 <h3>Changing the Theme</h3>
 <p>Now let’s change the look and feel of the website.
-The greatest thing here is that you don’t need to create your own templates and mess with HTML, CSS and other visual thing (unless this is what you want to do), Pelican’s got you covered.
-Firstly list all preinstalled themes</p>
+The greatest thing here is that you don’t need to create your own templates and mess with HTML, CSS and other visual thing (unless this is what you want to do), Pelican’s got you covered.</p>
+<p>Firstly list all preinstalled themes</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># pelican-site/source/</span>
+
 pelican-themes --list --verbose
 <span class="c1"># or simply pelican-themes -lv</span>
 
@@ -351,9 +356,9 @@ pelican-themes --list --verbose
 </code></pre></div>
 
 <p>Next visit pelican-themes website <a href="http://www.pelicanthemes.com/">http://www.pelicanthemes.com</a> and choose a theme of your liking.
-One popular theme is <em>Flex</em>, it's suits very well for portfolio websites. For my own project I chose <em>Clean blog</em>.
-<small>One important thing to take to consider: all themes built and styled differently, have different settings. Some more customizable than others. Every one of them has some flaws and trade-offs. You may spend some time tweaking a theme, it's ok. Still, for it's much better than to set up everything myself.</small>
-After you chose the preferable theme head to <a href="https://github.com/getpelican/pelican-themes/">https://github.com/getpeliacn/pelican-themes</a>, find your chosen theme from the list and clone it (press little green <em>Code</em> button and copy the output) to themes directory.</p>
+One popular theme is <em>Flex</em>, it's suits very well for portfolio websites. For my own project I chose <em>Clean blog</em> however.</p>
+<p><small>One important thing to take to consider: all themes built and styled differently, have different settings. Some more customizable than others. Every one of them has some flaws and trade-offs. You may spend some time tweaking a theme, it's ok. Still, for it's much better than to set up everything myself.</small></p>
+<p>After you chose the preferable theme head to <a href="https://github.com/getpelican/pelican-themes/">https://github.com/getpeliacn/pelican-themes</a>, find your chosen theme from the list and clone it (press little green <em>Code</em> button and copy the output) to <code>themes/</code> directory.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># pelican-site/themes</span>
 git clone git@github.com:alexandrevicenzi/Flex.git
 
@@ -384,7 +389,7 @@ Resolving deltas: <span class="m">100</span>% <span class="o">(</span><span clas
 </code></pre></div>
 
 <p>Cool, we've added new theme to our project. But we can't use it for our new layout yet. We need to tell Pelican which theme to use.
-Open <code>pelicanconf.py</code> setting file in your text editor and change some settings.</p>
+Open <code>pelicanconf.py</code> setting file in your text editor and add new line.</p>
 <div class="highlight"><pre><span></span><code><span class="n">THEME</span> <span class="o">=</span> <span class="s1">&#39;Flex&#39;</span>
 </code></pre></div>
 
@@ -392,9 +397,9 @@ Open <code>pelicanconf.py</code> setting file in your text editor and change som
 <img alt="after applying new theme" src="https://sammirabyan.github.io/images/pelican_with_flex_theme.png">
 <small>Further customizations and tips you can find in this great multi-step <a href="https://shahayush.com/2020/03/web-pelican-pt1-setup/">tutorial</a> by <em>Ayush Kumar Shah</em>.</small></p>
 <h3>Publishing your website to GitHub Pages</h3>
-<p>All right we have a website that works on our local machine, let’s pair it with GitHub Pages.
-I will keep the process as simple as it can be in order to keep the feeling of control over the process.
-Firstly we need to make some changes to the <code>pelicanconf.py</code> file</p>
+<p>All right we have a website that works on our local machine, let’s pair it with GitHub Pages.</p>
+<p>I will keep the process as simple as it can be in order to keep the feeling of control over the process.</p>
+<p>Firstly we need to make some changes to the <code>pelicanconf.py</code> file</p>
 <div class="highlight"><pre><span></span><code><span class="n">SITEURL</span> <span class="o">=</span> <span class="s1">&#39;https://your-github-username.github.io&#39;</span>
 <span class="n">DOMAIN</span> <span class="o">=</span> <span class="n">SITEURL</span>
 <span class="n">FEED_DOMAIN</span> <span class="o">=</span> <span class="n">SITEURL</span>
@@ -485,15 +490,17 @@ git push -U main origin
 <p>Now we have our source files safely stored in a remote repository.</p>
 <p>Pay attention that in this case you need to maintain (manually) the state of two repositories – one for the output and another for the source code. There are some tools to make life easier and less error-prone, I hope you'll easily find them yourself.</p>
 <h3>Wrapping up</h3>
-<p>Well, we've covered some major steps from an empty directory to having our website published on the internet.
-In this tutorial we've discovered how to use Pelican to:
-- scaffold your website's code structure;
-- generate HTML files from Markdown;
-- create articles;
-- create static pages;
-- change layout with Pelican themes;
-- publish generated static files on GitHub Pages;
-- store your project's source code on GitHub.</p>
+<p>Well, we've covered some major steps from an empty directory to having our website published on the internet.</p>
+<p>In this tutorial we've discovered how to use Pelican to:</p>
+<ul>
+<li>scaffold your website's code structure;</li>
+<li>generate HTML files from Markdown;</li>
+<li>create articles;</li>
+<li>create static pages;</li>
+<li>change layout with Pelican themes;</li>
+<li>publish generated static files on GitHub Pages;</li>
+<li>store your project's source code on GitHub.</li>
+</ul>
 <p>There is still a lot that remained uncovered by this article. The rest should be picked up on the go while solving problems and improving your new existing site.</p>
 <p>Thanks for reading! I hope it was an interesting one. 
 See you next time!</p>
